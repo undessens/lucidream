@@ -1,0 +1,44 @@
+#N canvas 345 23 1151 868 10;
+#X declare -path ../;
+#X obj 35 107 cnv 15 1020 602 empty empty empty 20 12 0 14 -41876 -262144
+0;
+#N canvas 130 265 1411 744 input-output 0;
+#X obj 101 101 cnv 15 1019 78 empty empty LUCIBOX 25 30 2 35 -42076
+-262144 0;
+#X obj 489 103 cnv 15 198 72 empty empty MIXER 35 30 0 45 -33289 -4032
+0;
+#N canvas 406 214 450 300 close 0;
+#X obj 103 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 101 101 hradio 28 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 102 102 cnv 15 54 26 empty empty Quitter 3 12 0 12 -233017 -66577
+0;
+#X obj 91 48 inlet;
+#X msg 104 193 \; pd-example/example2.pd menuclose \;;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 3 0 0 0;
+#X coords 0 -1 1 1 58 30 1 100 100;
+#X restore 1053 205 pd close;
+#X obj 949 46 declare -path ../;
+#X obj 404 428 audio/4_sync_loop 1;
+#X obj 404 428;
+#X obj 535 567 dac~;
+#X obj 535 543 *~ 1;
+#X obj 104 149 arduino/arduino;
+#X obj 486 192 arduino/arduino_in;
+#X obj 859 513 audio/tempo;
+#X obj 543 428 audio/4_sync_loop 2;
+#X obj 696 427 audio/4_sync_loop 3;
+#X connect 4 0 7 0;
+#X connect 7 0 6 0;
+#X connect 7 0 6 1;
+#X connect 11 0 7 0;
+#X connect 12 0 7 0;
+#X coords 0 -1 1 1 1020 80 2 100 100;
+#X restore 36 22 pd input-output;
+#X obj 70 169 UI/ui_4_sync_loop 1;
+#X obj 35 713 UI/ui_tempo;
+#X obj 274 169 UI/ui_4_sync_loop 2;
+#X obj 478 169 UI/ui_4_sync_loop 3;
