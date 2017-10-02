@@ -192,14 +192,14 @@ delay 3 14 0 10 -86735 -262144 -262144 0 0;
 #X connect 46 0 1 0;
 #X connect 47 0 11 0;
 #X restore 604 261 pd timecompression;
-#N canvas 411 392 703 360 init 0;
+#N canvas 411 392 703 360 init 1;
 #X floatatom 279 45 4 0 100 0 - - -, f 4;
 #X obj 279 65 * 0.001;
 #X text 314 45 msec;
 #X obj 279 -9 bang;
 #X obj 279 -39 loadbang;
 #X obj 279 88 s \$0_chunk-size;
-#X msg 279 23 40;
+#X msg 279 23 60;
 #X connect 0 0 1 0;
 #X connect 1 0 5 0;
 #X connect 3 0 6 0;
@@ -339,10 +339,10 @@ delay 3 14 0 10 -86735 -262144 -262144 0 0;
 #X restore 602 189 pd rampgenerator;
 #X obj -84 487 cnv 15 650 70 empty empty TO::UI 20 12 0 14 -261682
 -66577 0;
-#X obj -34 525 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj -34 525 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 348 523 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 3544 1;
+-1 -1 12700 1;
 #X floatatom 167 520 5 0 0 0 - - -, f 5;
 #X obj 574 486 cnv 15 650 70 empty empty TO::OUTLET 20 12 0 14 -261682
 -66577 0;
