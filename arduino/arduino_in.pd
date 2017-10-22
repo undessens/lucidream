@@ -34,13 +34,13 @@
 #X connect 14 0 6 0;
 #X restore 61 75 pd read_serial;
 #X obj 101 153 vsl 15 50 0 255 0 0 empty empty A0 2 30 0 10 -249508
--1 -1 3555 1;
+-1 -1 749 1;
 #X obj 152 153 vsl 15 50 0 255 0 0 empty empty A2 2 30 0 10 -241442
 -1 -1 0 1;
 #X obj 178 153 vsl 15 50 0 255 0 0 empty empty A3 2 30 0 10 -241444
 -1 -1 0 1;
 #X obj 127 153 vsl 15 50 0 255 0 0 empty empty A1 2 30 0 10 -241442
--1 -1 0 1;
+-1 -1 2556 1;
 #X obj 61 113 route 0 1 2 3 4 5;
 #X obj 257 191 tgl 15 0 empty empty D1 2 7 0 10 -204786 -1 -1 0 255
 ;

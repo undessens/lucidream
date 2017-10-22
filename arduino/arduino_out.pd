@@ -19,7 +19,7 @@
 #X obj 246 -157 inlet;
 #X obj 329 -156 inlet;
 #X obj 370 -156 inlet;
-#X obj 261 -46 cnv 15 119 73 empty empty VERS:LUCIBOX 20 60 0 14 -108719
+#X obj 261 -46 cnv 15 158 73 empty empty VERS:LUCIBOX 20 60 0 14 -108719
 -1 0;
 #X obj 633 37 vsl 15 40 0 255 0 0 empty empty empty 0 -9 0 10 -258113
 -1 -1 0 1;
@@ -40,13 +40,25 @@
 0 1;
 #X obj 310 -46 tgl 20 0 empty empty 3 6 10 0 12 -172298 -262144 -262144
 0 1;
-#X obj 335 -46 tgl 20 0 empty empty 4 6 10 0 12 -172298 -262144 -262144
+#X obj 332 -46 tgl 20 0 empty empty 4 6 10 0 12 -172298 -262144 -262144
 0 1;
-#X obj 359 -46 tgl 20 0 empty empty 5 6 10 0 12 -172298 -262144 -262144
-0 1;
+#X obj 354 -46 tgl 20 0 empty empty 5 6 10 0 12 -172298 -262144 -262144
+1 1;
 #X obj 353 89 t b f;
 #X obj 352 190 pack 0 0;
 #X obj 353 157 i 4;
+#X obj 377 -46 tgl 20 0 empty empty 6 6 10 0 12 -172298 -262144 -262144
+0 1;
+#X obj 399 -46 tgl 20 0 empty empty 7 6 10 0 12 -172298 -262144 -262144
+0 1;
+#X obj 409 -156 inlet;
+#X obj 450 -156 inlet;
+#X obj 413 89 t b f;
+#X obj 412 190 pack 0 0;
+#X obj 473 89 t b f;
+#X obj 472 190 pack 0 0;
+#X obj 413 157 i 5;
+#X obj 473 157 i 6;
 #X connect 1 0 2 0;
 #X connect 2 0 0 0;
 #X connect 3 0 4 0;
@@ -89,4 +101,16 @@
 #X connect 36 1 37 1;
 #X connect 37 0 0 0;
 #X connect 38 0 37 0;
-#X coords 0 -1 1 1 120 80 2 260 -50;
+#X connect 39 0 43 0;
+#X connect 40 0 45 0;
+#X connect 41 0 39 0;
+#X connect 42 0 40 0;
+#X connect 43 0 47 0;
+#X connect 43 1 44 1;
+#X connect 44 0 0 0;
+#X connect 45 0 48 0;
+#X connect 45 1 46 1;
+#X connect 46 0 0 0;
+#X connect 47 0 44 0;
+#X connect 48 0 46 0;
+#X coords 0 -1 1 1 160 80 2 260 -50;

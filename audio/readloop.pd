@@ -5,7 +5,7 @@
 #X msg 60 91 bang;
 #X text 101 91 <-- record;
 #N canvas 0 50 450 300 (subpatch) 0;
-#X array \$0_loop 2.7e+06 float 0;
+#X array \$0_loop 2.7e+06 float 0 black black;
 #X coords 0 300 2.7e+06 299 200 130 0;
 #X restore 191 34 graph;
 #X obj 45 118 tabwrite~ \$0_loop;
@@ -38,7 +38,7 @@ volume 5 12 0 10 -86735 -262144 -262144 0 0;
 delay 3 14 0 10 -86735 -262144 -262144 0 0;
 #X obj 312 300 vsl 8 95 0 127 0 0 empty \$1_loop_vumetreIN empty 0
 -9 0 10 -228856 -159808 -1 0 1;
-#N canvas 930 215 788 675 findtempo 0;
+#N canvas 930 215 788 675 findtempo 1;
 #X obj 205 33 inlet;
 #X floatatom 178 223 5 0 0 0 - - -, f 5;
 #X obj 151 594 /;
@@ -67,6 +67,7 @@ delay 3 14 0 10 -86735 -262144 -262144 0 0;
 #X obj 299 111 s \$0_loop_duration;
 #X obj 178 194 / 380;
 #X obj 203 792 s \$0_loop_realtempo;
+#X obj 374 795 s \$1_\$2_realtempo_toUI;
 #X connect 0 0 16 0;
 #X connect 0 0 17 0;
 #X connect 0 0 25 0;
@@ -93,6 +94,7 @@ delay 3 14 0 10 -86735 -262144 -262144 0 0;
 #X connect 19 0 21 0;
 #X connect 20 0 18 0;
 #X connect 21 0 27 0;
+#X connect 21 0 28 0;
 #X connect 26 0 1 0;
 #X restore 467 190 pd findtempo;
 #N canvas 386 143 979 566 timecompression 0;
@@ -192,7 +194,7 @@ delay 3 14 0 10 -86735 -262144 -262144 0 0;
 #X connect 46 0 1 0;
 #X connect 47 0 11 0;
 #X restore 604 261 pd timecompression;
-#N canvas 411 392 703 360 init 1;
+#N canvas 411 392 703 360 init 0;
 #X floatatom 279 45 4 0 100 0 - - -, f 4;
 #X obj 279 65 * 0.001;
 #X text 314 45 msec;
@@ -363,7 +365,7 @@ delay 3 14 0 10 -86735 -262144 -262144 0 0;
 #X obj 602 32 bng 45 250 50 0 empty empty empty 17 7 0 10 -258113 -1
 -1;
 #X obj 604 289 *~ 1;
-#X obj 848 57 tgl 45 0 empty empty empty 17 7 0 10 -4034 -1 -1 0 1
+#X obj 848 57 tgl 45 0 empty empty empty 17 7 0 10 -4034 -1 -1 1 1
 ;
 #X obj 885 -3 inlet;
 #X obj 848 118 sel 0;

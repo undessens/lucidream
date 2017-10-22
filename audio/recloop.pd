@@ -1,7 +1,7 @@
-#N canvas 34 26 1008 842 10;
+#N canvas -20 23 1019 917 10;
 #X obj 85 19 cnv 15 650 70 empty empty FROM::INLET 20 12 0 14 -261682
 -66577 0;
-#X obj 253 52 inlet;
+#X obj 253 -3 inlet;
 #X text 298 56 rec;
 #X obj 101 465 cnv 15 280 350 empty empty write_first_loop 20 12 0
 9 -212539 -66577 0;
@@ -47,7 +47,7 @@
 #X obj -49 253 s \$1_recloop_ui_rec;
 #X obj 151 254 s \$1_recloop_ui_stoprec;
 #N canvas 56 477 562 440 istempoplaying 0;
-#X obj 134 114 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 134 114 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 113 323 outlet;
 #X obj 188 324 outlet;
@@ -146,14 +146,14 @@
 #X obj 437 767 tabwrite~ \$0_loop;
 #X obj 1087 540 bng 35 250 50 0 empty empty empty 17 7 0 10 -258113
 -1 -1;
-#X obj 1112 585 s \$0_is_loop_deleted;
-#X obj 345 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 1093 596 s \$0_is_loop_deleted;
+#X obj 273 63 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 257 106 tgl 35 0 empty empty empty 17 7 0 10 -4032 -1 -1 0 1
 ;
 #X obj 766 465 cnv 15 210 320 empty empty play! 20 12 0 9 -204217 -66577
 0;
-#N canvas 298 404 979 566 timecompression 0;
+#N canvas 732 120 979 612 timecompression 0;
 #X obj 43 208 hip~ 5;
 #X obj 44 155 *~;
 #X obj 44 57 +~;
@@ -203,7 +203,12 @@
 #X obj 295 140 tabread4~ \$0_loop;
 #X floatatom 817 -4 5 0 0 0 - - -, f 5;
 #X obj 667 -85 r recloop_\$1_transpose;
+#X obj 289 322 snapshot~;
+#X obj 383 300 metro 200;
+#X msg 371 267 1;
+#X floatatom 293 353 5 0 0 0 - - -, f 5;
 #X connect 0 0 21 0;
+#X connect 0 0 49 0;
 #X connect 1 0 8 0;
 #X connect 2 0 9 0;
 #X connect 3 0 4 0;
@@ -251,8 +256,11 @@
 #X connect 45 0 1 0;
 #X connect 46 0 11 0;
 #X connect 48 0 23 0;
+#X connect 49 0 52 0;
+#X connect 50 0 49 0;
+#X connect 51 0 50 0;
 #X restore 792 585 pd timecompression;
-#N canvas 102 312 847 698 rampgenerator 0;
+#N canvas 720 182 847 698 rampgenerator 0;
 #X obj 137 651 outlet~;
 #X text 217 585 2 = nbbar*1/tempofinal;
 #X obj 81 169 f;
@@ -412,7 +420,7 @@
 #X connect 9 0 5 0;
 #X restore 792 669 pd ouput-effect;
 #X obj 792 626 *~ 1;
-#X obj 1056 134 tgl 45 0 empty empty empty 17 7 0 10 -4034 -1 -1 1
+#X obj 1056 134 tgl 45 0 empty empty empty 17 7 0 10 -4034 -1 -1 0
 1;
 #X obj 1053 23 inlet;
 #X obj 1056 195 sel 0;
@@ -451,8 +459,8 @@
 1;
 #X obj 849 257 r \$0_begin;
 #X msg 851 291 1;
-#N canvas 266 217 1039 601 manageRecording 0;
-#N canvas 504 290 565 322 islooprecorded 0;
+#N canvas 26 23 1039 818 manageRecording 0;
+#N canvas 219 537 565 345 islooprecorded 1;
 #X obj 110 114 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 115 230 spigot;
@@ -524,8 +532,8 @@
 #X obj 502 405 s \$0_realstart_first;
 #X obj 690 298 s \$0_realstart_first;
 #X obj 295 309 s \$0_realstart_overdub;
-#N canvas 345 415 562 440 istempoplaying 0;
-#X obj 134 114 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#N canvas 272 294 562 463 istempoplaying 0;
+#X obj 134 114 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 113 323 outlet;
 #X obj 188 324 outlet;
@@ -556,7 +564,7 @@
 #X coords 0 -1 1 1 85 30 1 100 100;
 #X restore 543 214 pd istempoplaying;
 #N canvas 56 477 562 440 istempoplaying 0;
-#X obj 134 114 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 134 114 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 113 323 outlet;
 #X obj 188 324 outlet;
@@ -603,6 +611,8 @@
 #X obj 534 344 s \$1_recloop_ui_waitforrec;
 #X obj 28 344 sel 0 1;
 #X obj 27 388 s \$1_recloop_ui_waitforrec;
+#X obj 651 284 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X connect 0 0 11 0;
 #X connect 0 1 10 0;
 #X connect 3 0 7 0;
@@ -611,6 +621,7 @@
 #X connect 10 0 3 0;
 #X connect 10 0 19 0;
 #X connect 10 1 8 0;
+#X connect 10 1 23 0;
 #X connect 11 0 4 0;
 #X connect 11 0 21 0;
 #X connect 11 1 5 0;
@@ -623,10 +634,10 @@
 #X obj 488 177 cnv 15 200 200 empty empty empty 20 12 0 14 -257983
 -66577 0;
 #N canvas 1 56 450 250 (subpatch) 0;
-#X array \$0_loop 600000 float 2;
+#X array \$0_loop 600000 float 2 black black;
 #X coords 0 250 1 249 200 140 0;
 #X restore 512 242 graph;
-#N canvas 11 412 703 360 init 0;
+#N canvas 905 327 703 360 init 1;
 #X floatatom 279 45 4 0 100 0 - - -, f 4;
 #X obj 279 65 * 0.001;
 #X text 314 45 msec;
@@ -634,15 +645,21 @@
 #X obj 279 -39 loadbang;
 #X obj 279 88 s \$0_chunk-size;
 #X msg 434 4 1;
-#X msg 279 23 80;
 #X obj 435 51 s \$1_is_clear_fromUI;
+#X obj 162 46 pack \$0;
+#X msg 162 68 \; \$1_loop const 0;
+#X msg 279 23 0;
+#X obj 387 86 s \$0_is_loop_deleted;
 #X connect 0 0 1 0;
 #X connect 1 0 5 0;
-#X connect 3 0 7 0;
+#X connect 3 0 10 0;
 #X connect 4 0 3 0;
 #X connect 4 0 6 0;
-#X connect 6 0 8 0;
-#X connect 7 0 0 0;
+#X connect 4 0 8 0;
+#X connect 4 0 11 0;
+#X connect 6 0 7 0;
+#X connect 8 0 9 0;
+#X connect 10 0 0 0;
 #X restore 552 241 pd init;
 #X obj 541 299 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 12700 1;
@@ -651,13 +668,13 @@
 #X obj 1175 233 bang;
 #X obj 345 26 r \$1_rec_fromUI;
 #X obj 1119 49 r \$1_play_fromUI;
-#X obj 1119 77 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 1056 98 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 1082 485 r \$1_clear_fromUI;
 #X obj 1043 720 s \$1_recloop_deleted_ui;
 #X obj 121 768 s \$1_recloop_recorded_ui;
-#X obj 1053 655 s \$1_recloop_ui_waitforclear;
-#X obj 1032 626 delay 1000;
+#X obj 1087 655 s \$1_recloop_ui_waitforclear;
+#X obj 1043 626 delay 1000;
 #X obj 922 259 r \$0_is_loop_deleted;
 #X msg 923 289 0;
 #N canvas 0 22 836 696 ledoutrec 0;
@@ -671,7 +688,7 @@
 #X obj 417 305 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 561 199 r \$1_recloop_deleted_ui;
-#X obj 110 447 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 110 447 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 110 474 sel 1;
 #X msg 86 377 bang;
@@ -712,7 +729,53 @@
 #X connect 20 0 8 0;
 #X restore 1263 776 pd ledoutrec;
 #X obj 1263 811 outlet;
-#X connect 1 0 36 0;
+#X obj 245 37 sel 0;
+#N canvas 295 134 623 468 longORshort 0;
+#X obj 153 75 inlet;
+#X obj 152 180 timer;
+#X obj 153 119 sel 0;
+#X obj 187 149 bang;
+#X obj 151 224 > 500;
+#X obj 151 298 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 181 298 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 151 256 sel 0;
+#X obj 151 332 outlet;
+#X obj 208 334 outlet;
+#X obj 380 102 sel 0;
+#X obj 398 239 i 0;
+#X obj 398 270 sel 0;
+#X obj 399 311 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 431 312 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 444 196 delay 600;
+#X obj 433 357 s \$1_recloop_ui_waitforclear;
+#X connect 0 0 2 0;
+#X connect 0 0 10 0;
+#X connect 0 0 11 1;
+#X connect 1 0 4 0;
+#X connect 2 0 1 1;
+#X connect 2 1 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 7 0;
+#X connect 5 0 8 0;
+#X connect 6 0 9 0;
+#X connect 7 0 5 0;
+#X connect 7 1 6 0;
+#X connect 10 1 15 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 12 1 14 0;
+#X connect 14 0 16 0;
+#X connect 15 0 11 0;
+#X restore 1057 71 pd longORshort;
+#X obj 1138 99 s \$0_clear;
+#X obj 1038 469 r \$0_clear;
+#X obj 1245 589 pack \$0;
+#X msg 1245 611 \; \$1_loop const 0;
+#X connect 1 0 83 0;
 #X connect 4 0 8 0;
 #X connect 4 0 11 0;
 #X connect 5 0 10 0;
@@ -744,6 +807,7 @@
 #X connect 33 0 34 0;
 #X connect 33 0 77 0;
 #X connect 33 0 78 0;
+#X connect 33 0 87 0;
 #X connect 35 0 36 0;
 #X connect 36 0 63 0;
 #X connect 38 0 41 0;
@@ -754,7 +818,7 @@
 #X connect 42 0 44 0;
 #X connect 42 0 58 0;
 #X connect 42 0 70 0;
-#X connect 43 0 42 0;
+#X connect 43 0 84 0;
 #X connect 44 0 45 0;
 #X connect 44 1 46 0;
 #X connect 45 0 49 0;
@@ -784,3 +848,8 @@
 #X connect 79 0 80 0;
 #X connect 80 0 60 0;
 #X connect 81 0 82 0;
+#X connect 83 1 35 0;
+#X connect 84 0 73 0;
+#X connect 84 1 85 0;
+#X connect 86 0 33 0;
+#X connect 87 0 88 0;

@@ -1,4 +1,4 @@
-#N canvas 439 249 1020 737 12;
+#N canvas 660 264 1020 737 12;
 #X declare -path ../;
 #X declare -path ../externals/;
 #X obj 15 396 s arduinoOUT;
@@ -12,7 +12,6 @@
 #X obj 522 1 inlet;
 #X obj 18 -34 declare -path ../;
 #X obj 16 -2 declare -path ../externals/;
-#X obj 128 303 ../externals/comport 1 57600;
 #X obj 242 171 i 0;
 #X msg 242 201 open \$1;
 #X obj 148 396 bang;
@@ -25,18 +24,19 @@
 -1 -1;
 #X obj 620 102 bng 25 250 50 0 empty empty Message 28 18 0 10 -170864
 -1 -1;
-#X connect 1 0 11 0;
+#X obj 128 303 comport 1 57600;
+#X connect 1 0 19 0;
 #X connect 2 0 1 0;
-#X connect 3 0 11 0;
+#X connect 3 0 19 0;
 #X connect 5 0 6 0;
-#X connect 7 0 17 0;
-#X connect 8 0 18 0;
-#X connect 11 0 0 0;
-#X connect 11 0 14 0;
-#X connect 12 0 13 0;
-#X connect 13 0 11 0;
-#X connect 15 0 12 0;
-#X connect 17 0 12 0;
-#X connect 18 0 3 0;
-#X connect 18 0 5 0;
+#X connect 7 0 16 0;
+#X connect 8 0 17 0;
+#X connect 11 0 12 0;
+#X connect 12 0 19 0;
+#X connect 14 0 11 0;
+#X connect 16 0 11 0;
+#X connect 17 0 3 0;
+#X connect 17 0 5 0;
+#X connect 19 0 0 0;
+#X connect 19 0 13 0;
 #X coords 0 -1 1 1 190 28 1 500 100;
