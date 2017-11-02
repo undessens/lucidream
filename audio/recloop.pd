@@ -1,4 +1,4 @@
-#N canvas -20 23 1019 917 10;
+#N canvas 330 23 1019 917 10;
 #X obj 85 19 cnv 15 650 70 empty empty FROM::INLET 20 12 0 14 -261682
 -66577 0;
 #X obj 253 -3 inlet;
@@ -16,7 +16,7 @@
 #X obj 361 614 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 220 655 r~ \$0-input;
-#N canvas 822 23 649 663 toTempo-ui 0;
+#N canvas 822 23 649 663 toTempo-ui 1;
 #X obj 96 301 timer;
 #X obj 133 326 s \$0_timer;
 #X floatatom 69 414 5 0 0 0 - - -, f 5;
@@ -31,19 +31,19 @@
 #X floatatom 114 693 5 0 0 0 - - -, f 5;
 #X obj 115 741 s \$0_loop_size;
 #X obj 102 607 t b f;
-#X obj 81 865 s tempoValue;
+#X obj 81 915 s tempoValue;
 #X floatatom 97 359 10 0 0 0 - - -, f 10;
 #X obj 42 348 t f f;
-#X obj 42 915 s tempoGoIn;
+#X obj 42 965 s tempoGoIn;
 #X obj 94 167 inlet;
 #X obj 123 189 inlet;
 #X obj 42 828 t b b f;
 #X obj 69 385 / 380;
-#X obj 175 865 s \$0_loop_tempo;
+#X obj 202 873 s \$0_loop_tempo;
 #X text 113 829 non \, la fausse valeur;
-#X text 125 917 pas besoin de Go In \, si le tempo est dejq en place
+#X text 125 967 pas besoin de Go In \, si le tempo est dejq en place
 ;
-#X obj 61 891 s \$0_begin;
+#X obj 61 941 s \$0_begin;
 #X obj -49 253 s \$1_recloop_ui_rec;
 #X obj 151 254 s \$1_recloop_ui_stoprec;
 #N canvas 56 477 562 440 istempoplaying 0;
@@ -82,6 +82,37 @@
 0;
 #X text 360 732 really important;
 #X text 357 754 set qantif from 1s loop;
+#N canvas 56 477 562 440 istempoplaying 0;
+#X obj 134 114 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 113 323 outlet;
+#X obj 188 324 outlet;
+#X obj 165 8 inlet;
+#X obj 23 24 r tempoGoOutBang;
+#X msg 22 65 1;
+#X msg 52 65 0;
+#X obj 68 44 r tempoStopOut;
+#X obj 205 90 t b f;
+#X obj 167 189 sel 1 0;
+#X obj 233 250 i -1;
+#X obj 272 250 i -1;
+#X obj 163 159 i -1;
+#X connect 0 0 12 1;
+#X connect 3 0 8 0;
+#X connect 4 0 5 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 6 0;
+#X connect 8 0 12 0;
+#X connect 8 1 10 1;
+#X connect 8 1 11 1;
+#X connect 9 0 10 0;
+#X connect 9 1 11 0;
+#X connect 10 0 1 0;
+#X connect 11 0 2 0;
+#X connect 12 0 9 0;
+#X coords 0 -1 1 1 85 30 1 100 100;
+#X restore 80 868 pd istempoplaying;
 #X connect 0 0 1 0;
 #X connect 0 0 15 0;
 #X connect 0 0 16 0;
@@ -106,10 +137,11 @@
 #X connect 19 0 0 1;
 #X connect 19 0 27 0;
 #X connect 20 1 25 0;
-#X connect 20 2 14 0;
 #X connect 20 2 22 0;
+#X connect 20 2 33 0;
 #X connect 21 0 2 0;
 #X connect 28 1 29 0;
+#X connect 33 1 14 0;
 #X restore 285 637 pd toTempo-ui;
 #X obj 150 497 r \$0_realstart_first;
 #X obj 186 701 tabwrite~ \$0_loop;
@@ -459,9 +491,9 @@
 1;
 #X obj 849 257 r \$0_begin;
 #X msg 851 291 1;
-#N canvas 26 23 1039 818 manageRecording 0;
-#N canvas 219 537 565 345 islooprecorded 1;
-#X obj 110 114 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#N canvas 936 44 865 459 manageRecording 0;
+#N canvas 219 537 565 345 islooprecorded 0;
+#X obj 110 114 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 115 230 spigot;
 #X obj 141 147 sel 0 1;
@@ -637,7 +669,7 @@
 #X array \$0_loop 600000 float 2 black black;
 #X coords 0 250 1 249 200 140 0;
 #X restore 512 242 graph;
-#N canvas 905 327 703 360 init 1;
+#N canvas 905 327 703 360 init 0;
 #X floatatom 279 45 4 0 100 0 - - -, f 4;
 #X obj 279 65 * 0.001;
 #X text 314 45 msec;
@@ -673,35 +705,35 @@
 #X obj 1082 485 r \$1_clear_fromUI;
 #X obj 1043 720 s \$1_recloop_deleted_ui;
 #X obj 121 768 s \$1_recloop_recorded_ui;
-#X obj 1087 655 s \$1_recloop_ui_waitforclear;
+#X obj 1157 660 s \$1_recloop_ui_waitforclear;
 #X obj 1043 626 delay 1000;
 #X obj 922 259 r \$0_is_loop_deleted;
 #X msg 923 289 0;
-#N canvas 0 22 836 696 ledoutrec 0;
+#N canvas 422 23 836 696 ledoutrec 0;
 #X msg 102 285 1;
-#X obj 80 202 r \$1_recloop_ui_waitforrec;
-#X obj 104 233 r \$1_recloop_ui_waitforclear;
-#X obj 289 228 r \$1_recloop_ui_rec;
-#X obj 412 198 r \$1_recloop_ui_stoprec;
+#X obj 88 202 r \$1_recloop_ui_waitforrec;
+#X obj -96 202 r \$1_recloop_ui_waitforclear;
+#X obj 288 202 r \$1_recloop_ui_rec;
+#X obj 412 202 r \$1_recloop_ui_stoprec;
 #X obj 307 309 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 417 305 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 417 309 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 561 199 r \$1_recloop_deleted_ui;
-#X obj 110 447 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 561 202 r \$1_recloop_deleted_ui;
+#X obj 102 447 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 110 474 sel 1;
-#X msg 86 377 bang;
-#X msg 146 378 stop;
+#X obj 102 474 sel 1;
+#X msg 102 377 bang;
+#X msg 146 377 stop;
 #X obj 102 328 sel 1;
 #X obj 153 349 t b b;
-#X msg 178 442 1;
+#X msg 178 447 1;
 #X obj 307 344 t b b;
-#X obj 417 345 t b b;
+#X obj 417 344 t b b;
 #X msg 342 572 1;
 #X msg 404 572 0;
 #X obj 356 642 outlet;
-#X obj 110 418 metro 200;
+#X obj 102 418 metro 200;
 #X connect 0 0 12 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -727,8 +759,8 @@
 #X connect 17 0 19 0;
 #X connect 18 0 19 0;
 #X connect 20 0 8 0;
-#X restore 1263 776 pd ledoutrec;
-#X obj 1263 811 outlet;
+#X restore 1009 760 pd ledoutrec;
+#X obj 1009 795 outlet;
 #X obj 245 37 sel 0;
 #N canvas 295 134 623 468 longORshort 0;
 #X obj 153 75 inlet;
@@ -775,6 +807,61 @@
 #X obj 1038 469 r \$0_clear;
 #X obj 1245 589 pack \$0;
 #X msg 1245 611 \; \$1_loop const 0;
+#X obj 1132 803 outlet;
+#N canvas 831 87 836 696 ledoutplay 0;
+#X msg 102 285 1;
+#X obj 307 309 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 417 305 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 110 447 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 110 474 sel 1;
+#X msg 86 377 bang;
+#X msg 146 378 stop;
+#X obj 102 328 sel 1;
+#X obj 153 349 t b b;
+#X msg 178 442 1;
+#X obj 307 344 t b b;
+#X obj 417 345 t b b;
+#X msg 342 572 1;
+#X msg 404 572 0;
+#X obj 356 642 outlet;
+#X obj 110 418 metro 200;
+#X obj 235 126 r \$1_recloop_ui_waitforplay;
+#X obj 237 91 r \$1_recloop_ui_waitforclear;
+#X obj 55 125 r \$1_recloop_ui_waitforstop;
+#X obj 350 147 r \$1_recloop_ui_play;
+#X obj 476 148 r \$1_recloop_ui_stop;
+#X obj 612 148 r \$1_recloop_deleted_ui;
+#X connect 0 0 7 0;
+#X connect 1 0 10 0;
+#X connect 2 0 11 0;
+#X connect 3 0 4 0;
+#X connect 4 0 12 0;
+#X connect 4 1 13 0;
+#X connect 5 0 15 0;
+#X connect 6 0 15 0;
+#X connect 7 0 5 0;
+#X connect 7 1 8 0;
+#X connect 8 0 6 0;
+#X connect 8 1 9 0;
+#X connect 9 0 4 0;
+#X connect 10 0 12 0;
+#X connect 10 1 6 0;
+#X connect 11 0 13 0;
+#X connect 11 1 6 0;
+#X connect 12 0 14 0;
+#X connect 13 0 14 0;
+#X connect 15 0 3 0;
+#X connect 16 0 0 0;
+#X connect 17 0 0 0;
+#X connect 18 0 0 0;
+#X connect 19 0 1 0;
+#X connect 20 0 2 0;
+#X connect 21 0 2 0;
+#X restore 1132 760 pd ledoutplay;
+#X obj 1260 801 outlet;
 #X connect 1 0 83 0;
 #X connect 4 0 8 0;
 #X connect 4 0 11 0;
@@ -808,6 +895,7 @@
 #X connect 33 0 77 0;
 #X connect 33 0 78 0;
 #X connect 33 0 87 0;
+#X connect 33 0 91 0;
 #X connect 35 0 36 0;
 #X connect 36 0 63 0;
 #X connect 38 0 41 0;
@@ -853,3 +941,4 @@
 #X connect 84 1 85 0;
 #X connect 86 0 33 0;
 #X connect 87 0 88 0;
+#X connect 90 0 89 0;

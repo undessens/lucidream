@@ -1,12 +1,12 @@
-#N canvas 19 77 1096 855 10;
+#N canvas 183 46 1151 891 10;
 #X declare -path ../;
 #X declare -path ../;
 #X declare -path ../externals/;
-#X obj 35 133 cnv 15 1020 576 empty empty empty 20 12 0 14 -41876 -262144
+#X obj 35 107 cnv 15 1020 602 empty empty empty 20 12 0 14 -41876 -262144
 0;
-#N canvas 269 128 1411 836 input-output 0;
-#X obj 101 101 cnv 15 1019 78 empty empty Sampler 426 34 1 56 -253822
--157856 0;
+#N canvas 57 38 1374 823 input-output 0;
+#X obj 101 101 cnv 15 1019 78 empty empty PEDALE\ DE\ BOUCLE 400 30
+0 35 -21525 -262144 0;
 #N canvas 406 214 450 300 close 0;
 #X obj 103 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -22,25 +22,33 @@
 #X coords 0 -1 1 1 58 30 1 100 100;
 #X restore 1053 205 pd close;
 #X obj 949 46 declare -path ../;
-#X obj 535 567 dac~;
+#X obj 536 598 dac~;
 #X obj 535 543 *~ 1;
 #X obj 104 149 arduino/arduino;
 #X obj 486 192 arduino/arduino_in;
 #X obj 859 513 audio/tempo;
-#X obj 404 453 audio/4_free_loop 1;
-#X obj 262 193 extra/keyboard;
-#X obj 554 453 audio/4_free_sound 1;
+#X obj 415 426 audio/recloop 1;
+#X obj 565 731 arduino/arduino_out;
+#X obj 237 290 audio/mic 1;
+#X obj 237 241 adc~;
+#X obj 237 547 *~ 1;
+#X obj 1105 40 loadbang;
+#X msg 1105 62 \; pd dsp 1;
+#X obj 633 601 s tempoStopIn;
+#X msg 634 568 0;
 #X connect 4 0 3 0;
 #X connect 4 0 3 1;
+#X connect 6 6 8 1;
+#X connect 6 7 8 2;
 #X connect 8 0 4 0;
-#X connect 9 6 8 0;
-#X connect 9 8 10 0;
-#X connect 9 9 10 1;
-#X connect 9 10 10 2;
-#X connect 9 11 10 3;
-#X connect 10 0 4 0;
+#X connect 8 3 16 0;
+#X connect 10 0 12 0;
+#X connect 10 0 8 0;
+#X connect 11 0 10 0;
+#X connect 11 1 10 0;
+#X connect 13 0 14 0;
+#X connect 16 0 15 0;
 #X coords 0 -1 1 1 1020 80 2 100 100;
-#X restore 35 48 pd input-output;
-#X obj 29 713 UI/ui_tempo;
-#X obj 89 159 UI/ui_4_free_loop 1;
-#X obj 276 162 UI/ui_4_free_sound 1;
+#X restore 36 22 pd input-output;
+#X obj 35 713 UI/ui_tempo;
+#X obj 383 165 UI/ui_recloop 1;
