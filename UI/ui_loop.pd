@@ -1,4 +1,4 @@
-#N canvas 654 164 920 617 10;
+#N canvas 520 164 920 617 10;
 #X obj 55 235 cnv 15 98 78 empty empty empty 20 12 0 14 -233017 -66577
 0;
 #X obj 68 -363 inlet;
@@ -6,14 +6,14 @@
 #X obj 333 -358 inlet;
 #X obj -88 112 r \$1_\$2_readloop_slider_ui;
 #X obj -84 190 s \$1_\$2_click_fromUI;
-#X obj 97 -39 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj -25 -66 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 147 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 139 -39 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 177 -39 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 194 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X obj 132 -157 r \$1_\$2_readloop_play_ui;
-#X obj 136 -122 sel 1;
+#X obj 149 -7 sel 1;
 #X obj -25 -158 r \$1_\$2_readloop_wait_ui;
 #X obj 203 291 s \$1_\$2_readloop_volume_fromUI;
 #N canvas 642 256 1038 529 play 0;
@@ -107,18 +107,21 @@
 #X coords 0 -1 1 1 16 82 2 82 100;
 #X restore 202 102 pd volume;
 #X obj 551 -21 r \$1_\$2_realtempo_toUI;
-#X obj 162 146 cnv 15 35 15 empty \$0_tempocnv 83 15 6 2 10 -1 -241339
+#X obj 162 146 cnv 15 35 15 empty \$0_tempocnv 100 15 6 2 10 -1 -241339
 0;
 #X obj 552 11 makefilename %d;
 #X obj 552 37 symbol \$1;
 #X obj 553 105 pack \$0 s;
 #X obj 552 72 t b s;
 #X msg 553 142 \; \$1_tempocnv label \$2;
+#X obj 106 -81 i 0;
+#X obj -25 -186 r \$1_\$2_readloop_stopwait_ui;
 #X connect 4 0 14 0;
 #X connect 6 0 13 0;
 #X connect 7 0 13 1;
 #X connect 8 0 13 2;
 #X connect 9 0 10 0;
+#X connect 9 0 23 1;
 #X connect 10 0 7 0;
 #X connect 10 1 8 0;
 #X connect 11 0 6 0;
@@ -130,4 +133,6 @@
 #X connect 20 0 22 0;
 #X connect 21 0 20 0;
 #X connect 21 1 20 1;
+#X connect 23 0 10 0;
+#X connect 24 0 23 0;
 #X coords 0 -1 1 1 120 85 2 100 100;

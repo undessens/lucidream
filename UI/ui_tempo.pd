@@ -11,9 +11,9 @@
 #X msg 381 -30 2;
 #X obj 340 88 pack 22 0 0 \$0;
 #X obj 354 -122 inlet;
-#X obj 89 8 cnv 15 80 38 empty \$0_playcnv PLAY 35 17 0 15 -1 -66577
+#X obj 89 8 cnv 15 80 38 empty \$0_playcnv PLAY 35 17 0 15 -1 -24198
 0;
-#X obj 91 18 cnv 15 25 18 empty \$0_playsquare empty 20 12 0 14 -66577
+#X obj 91 18 cnv 15 25 18 empty \$0_playsquare empty 20 12 0 14 -24198
 -262144 0;
 #X obj 118 231 outlet;
 #X msg 337 119 \; \$4_playsquare color \$1 \$2 \$3;
@@ -47,9 +47,9 @@
 #X msg 381 -30 2;
 #X obj 340 88 pack 22 0 0 \$0;
 #X obj 354 -122 inlet;
-#X obj 101 101 cnv 15 80 38 empty \$0_stopcnv STOP 35 19 0 15 -1 -258699
+#X obj 101 101 cnv 15 80 38 empty \$0_stopcnv STOP 35 19 0 15 -1 -66577
 0;
-#X obj 105 113 cnv 15 25 18 empty \$0_stopsquare empty 20 12 0 14 -258699
+#X obj 105 113 cnv 15 25 18 empty \$0_stopsquare empty 20 12 0 14 -66577
 -262144 0;
 #X obj 118 231 outlet;
 #X obj 119 165 bang;

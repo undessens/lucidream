@@ -1,10 +1,10 @@
-#N canvas 147 256 1200 851 10;
+#N canvas 254 23 1082 828 10;
 #X declare -path ../;
 #X declare -path ../;
 #X declare -path ../externals/;
 #X obj 35 131 cnv 15 1020 576 empty empty empty 20 12 0 14 -41876 -262144
 0;
-#N canvas 716 103 1204 626 input-output 0;
+#N canvas 107 24 1204 695 input-output 0;
 #X obj 101 101 cnv 15 1019 78 empty empty Mixer 426 34 1 56 -21525
 -249661 0;
 #N canvas 406 214 450 300 close 0;
@@ -40,6 +40,7 @@
 #X connect 7 0 3 1;
 #X connect 7 1 9 1;
 #X connect 7 2 10 1;
+#X connect 7 3 8 2;
 #X connect 7 6 3 3;
 #X connect 7 7 9 3;
 #X connect 7 8 10 3;
