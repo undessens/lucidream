@@ -107,7 +107,8 @@
 #X text 1121 6 PITCH GLOBAL;
 #X obj 1075 30 / 255;
 #X obj 1075 52 * 200;
-#X obj 1075 84 - 100;
+#X obj 1075 105 - 100;
+#X obj 1075 75 i 0;
 #X connect 0 0 1 0;
 #X connect 1 0 6 0;
 #X connect 2 0 0 0;
@@ -170,6 +171,7 @@
 #X connect 69 0 66 0;
 #X connect 70 0 73 0;
 #X connect 73 0 74 0;
-#X connect 74 0 75 0;
+#X connect 74 0 76 0;
 #X connect 75 0 71 0;
+#X connect 76 0 75 0;
 #X coords 0 760 1 759 1000 60 0;

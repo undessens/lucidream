@@ -1,10 +1,10 @@
-#N canvas 78 23 1151 828 10;
+#N canvas 135 23 1151 851 10;
 #X declare -path ../;
 #X declare -path ../;
 #X declare -path ../externals/;
 #X obj 35 107 cnv 15 1020 602 empty empty empty 20 12 0 14 -41876 -262144
 0;
-#N canvas 401 67 1374 846 input-output 0;
+#N canvas 66 23 1374 828 input-output 1;
 #X obj 101 101 cnv 15 1019 78 empty empty PEDALE\ DE\ BOUCLE 400 30
 0 35 -21525 -262144 0;
 #N canvas 406 214 450 300 close 0;

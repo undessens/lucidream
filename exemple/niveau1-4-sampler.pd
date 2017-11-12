@@ -1,10 +1,10 @@
-#N canvas 249 23 1082 828 10;
+#N canvas 265 23 1082 828 10;
 #X declare -path ../;
 #X declare -path ../;
 #X declare -path ../externals/;
 #X obj 35 131 cnv 15 1020 576 empty empty empty 20 12 0 14 -41876 -262144
 0;
-#N canvas 305 138 1204 718 input-output 0;
+#N canvas 40 23 1204 695 input-output 0;
 #X obj 101 101 cnv 15 1019 78 empty empty Sampler 426 34 1 56 -21525
 -249661 0;
 #N canvas 406 214 450 300 close 0;
@@ -30,12 +30,12 @@
 #X obj 1080 413 loadbang;
 #X obj 1080 443 s tempoGoIn;
 #X obj 654 584 arduino/arduino_out;
-#X obj 640 391 audio/4_free_sound 1;
-#X obj 490 391 audio/4_sync_loop 2;
+#X obj 593 427 audio/4_free_loop 1;
+#X obj 383 428 audio/4_sync_loop 1;
 #X connect 4 0 3 0;
 #X connect 4 0 3 1;
-#X connect 6 0 12 1;
-#X connect 6 1 7 2;
+#X connect 6 0 7 2;
+#X connect 6 1 12 1;
 #X connect 6 6 11 0;
 #X connect 6 7 11 1;
 #X connect 6 8 11 2;
@@ -47,5 +47,5 @@
 #X coords 0 -1 1 1 1020 80 2 100 100;
 #X restore 35 48 pd input-output;
 #X obj 35 711 UI/ui_tempo;
-#X obj 484 160 UI/ui_4_free_sound 1;
-#X obj 263 160 UI/ui_4_sync_loop 2;
+#X obj 529 167 UI/ui_4_free_loop 1;
+#X obj 296 170 UI/ui_4_sync_loop 1;
