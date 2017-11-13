@@ -1,12 +1,10 @@
-#N canvas 44 23 1151 828 10;
+#N canvas 255 35 1151 828 10;
 #X declare -path ../;
-#X declare -path ../;
-#X declare -path ../externals/;
 #X obj 35 107 cnv 15 1020 602 empty empty empty 20 12 0 14 -41876 -262144
 0;
-#N canvas 66 28 1374 823 input-output 1;
-#X obj 101 101 cnv 15 1019 78 empty empty 3::LOOPER 400 30 0 35 -21525
--262144 0;
+#N canvas 66 28 1374 823 input-output 0;
+#X obj 101 101 cnv 15 1019 78 empty empty 3-miloolooloo 400 30 0 35
+-21525 -262144 0;
 #N canvas 406 214 450 300 close 0;
 #X obj 103 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -88,6 +86,8 @@
 #X obj 944 345 delay 1000;
 #X obj 512 268 / 127;
 #X floatatom 512 298 5 0 0 0 - - -, f 5;
+#X obj 538 148 cnv 15 170 30 empty empty Niveau:2 20 15 0 28 -233017
+-66577 0;
 #X connect 4 0 3 0;
 #X connect 4 0 3 1;
 #X connect 6 0 10 1;

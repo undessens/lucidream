@@ -1,11 +1,9 @@
-#N canvas 92 54 1200 946 10;
+#N canvas 87 28 1200 799 10;
 #X declare -path ../;
-#X declare -path ../;
-#X declare -path ../externals/;
 #X obj 35 131 cnv 15 1020 576 empty empty empty 20 12 0 14 -41876 -262144
 0;
-#N canvas 78 296 1411 859 input-output 0;
-#X obj 101 101 cnv 15 1019 78 empty empty Mixer 426 34 1 56 -21525
+#N canvas 171 268 1411 799 input-output 0;
+#X obj 101 101 cnv 15 1019 78 empty empty 1-synsynsyn 400 30 0 34 -21525
 -249661 0;
 #N canvas 406 214 450 300 close 0;
 #X obj 103 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -25,16 +23,17 @@
 #X obj 404 428 audio/4_sync_loop 1;
 #X obj 535 567 dac~;
 #X obj 535 543 *~ 1;
-#X obj 104 149 arduino/arduino;
-#X obj 486 192 arduino/arduino_in;
 #X obj 859 513 audio/tempo;
 #X obj 543 428 audio/4_sync_loop 2;
 #X obj 696 427 audio/4_sync_loop 3;
+#X obj 518 148 cnv 15 170 30 empty empty Niveau:0 20 15 0 28 -233017
+-66577 0;
+#X obj 104 149;
 #X connect 3 0 5 0;
 #X connect 5 0 4 0;
 #X connect 5 0 4 1;
-#X connect 9 0 5 0;
-#X connect 10 0 5 0;
+#X connect 7 0 5 0;
+#X connect 8 0 5 0;
 #X coords 0 -1 1 1 1020 80 2 100 100;
 #X restore 35 48 pd input-output;
 #X obj 108 169 UI/ui_4_sync_loop 1;

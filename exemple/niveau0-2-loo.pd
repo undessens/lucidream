@@ -1,12 +1,10 @@
-#N canvas 174 23 1151 828 10;
+#N canvas 115 213 1151 799 10;
 #X declare -path ../;
-#X declare -path ../;
-#X declare -path ../externals/;
 #X obj 35 107 cnv 15 1020 602 empty empty empty 20 12 0 14 -41876 -262144
 0;
-#N canvas 66 23 1374 828 input-output 0;
-#X obj 101 101 cnv 15 1019 78 empty empty PEDALE\ DE\ BOUCLE 400 30
-0 35 -21525 -262144 0;
+#N canvas 143 101 1374 823 input-output 1;
+#X obj 101 101 cnv 15 1020 80 empty empty 2-loo 400 30 1 34 -21525
+-262144 0;
 #N canvas 406 214 450 300 close 0;
 #X obj 103 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -24,39 +22,32 @@
 #X obj 949 46 declare -path ../;
 #X obj 536 598 dac~;
 #X obj 535 543 *~ 1;
-#X obj 104 149 arduino/arduino;
 #X obj 486 192 arduino/arduino_in;
 #X obj 859 513 audio/tempo;
 #X obj 415 426 audio/recloop 1;
 #X obj 565 731 arduino/arduino_out;
+#X obj 237 290 audio/mic 1;
+#X obj 237 241 adc~;
+#X obj 237 547 *~ 1;
 #X obj 1105 40 loadbang;
 #X msg 1105 62 \; pd dsp 1;
 #X obj 633 601 s tempoStopIn;
 #X msg 634 568 0;
-#X obj 627 348 audio/4_free_sound 1;
-#X msg 699 493 127;
+#X obj 488 148 cnv 15 170 30 empty empty Niveau:0 20 15 0 28 -233017
+-66577 0;
 #X connect 4 0 3 0;
 #X connect 4 0 3 1;
-#X connect 6 0 7 2;
-#X connect 6 1 7 3;
-#X connect 6 6 8 1;
-#X connect 6 7 8 2;
-#X connect 6 8 14 0;
-#X connect 6 9 14 1;
-#X connect 6 10 14 2;
-#X connect 6 11 14 3;
-#X connect 8 0 4 0;
-#X connect 8 1 9 0;
-#X connect 8 2 9 1;
-#X connect 8 3 13 0;
-#X connect 8 3 15 0;
-#X connect 10 0 11 0;
-#X connect 13 0 12 0;
-#X connect 14 0 4 0;
-#X connect 14 0 8 0;
-#X connect 15 0 7 3;
+#X connect 5 6 7 1;
+#X connect 5 7 7 2;
+#X connect 7 0 4 0;
+#X connect 7 3 15 0;
+#X connect 9 0 11 0;
+#X connect 9 0 7 0;
+#X connect 10 0 9 0;
+#X connect 10 1 9 0;
+#X connect 12 0 13 0;
+#X connect 15 0 14 0;
 #X coords 0 -1 1 1 1020 80 2 100 100;
 #X restore 36 22 pd input-output;
 #X obj 35 713 UI/ui_tempo;
-#X obj 379 172 UI/ui_recloop 1;
-#X obj 192 172 UI/ui_4_free_sound 1;
+#X obj 383 165 UI/ui_recloop 1;

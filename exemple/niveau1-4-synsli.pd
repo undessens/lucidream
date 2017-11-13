@@ -1,11 +1,9 @@
-#N canvas 265 23 1082 828 10;
+#N canvas 266 41 1082 828 10;
 #X declare -path ../;
-#X declare -path ../;
-#X declare -path ../externals/;
 #X obj 35 131 cnv 15 1020 576 empty empty empty 20 12 0 14 -41876 -262144
 0;
 #N canvas 40 23 1204 695 input-output 0;
-#X obj 101 101 cnv 15 1019 78 empty empty Sampler 426 34 1 56 -21525
+#X obj 101 101 cnv 15 1019 78 empty empty 4-synsli 400 30 0 34 -21525
 -249661 0;
 #N canvas 406 214 450 300 close 0;
 #X obj 103 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -32,6 +30,8 @@
 #X obj 654 584 arduino/arduino_out;
 #X obj 593 427 audio/4_free_loop 1;
 #X obj 383 428 audio/4_sync_loop 1;
+#X obj 499 148 cnv 15 170 30 empty empty Niveau:1 20 15 0 28 -233017
+-66577 0;
 #X connect 4 0 3 0;
 #X connect 4 0 3 1;
 #X connect 6 0 7 2;

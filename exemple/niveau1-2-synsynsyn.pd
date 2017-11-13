@@ -1,11 +1,9 @@
 #N canvas 254 23 1082 828 10;
 #X declare -path ../;
-#X declare -path ../;
-#X declare -path ../externals/;
 #X obj 35 131 cnv 15 1020 576 empty empty empty 20 12 0 14 -41876 -262144
 0;
 #N canvas 107 24 1204 695 input-output 0;
-#X obj 101 101 cnv 15 1019 78 empty empty Mixer 426 34 1 56 -21525
+#X obj 101 101 cnv 15 1019 78 empty empty 2-synsynsyn 400 30 0 34 -21525
 -249661 0;
 #N canvas 406 214 450 300 close 0;
 #X obj 103 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -33,6 +31,8 @@
 #X obj 1080 413 loadbang;
 #X obj 1080 443 s tempoGoIn;
 #X obj 654 584 arduino/arduino_out;
+#X obj 518 148 cnv 15 170 30 empty empty Niveau:1 20 15 0 28 -233017
+-66577 0;
 #X connect 3 0 5 0;
 #X connect 3 1 13 0;
 #X connect 5 0 4 0;
