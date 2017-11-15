@@ -1,8 +1,8 @@
-#N canvas 87 28 1200 799 10;
+#N canvas 172 23 1200 799 10;
 #X declare -path ../;
 #X obj 35 131 cnv 15 1020 576 empty empty empty 20 12 0 14 -41876 -262144
 0;
-#N canvas 171 268 1411 799 input-output 0;
+#N canvas 124 23 1411 799 input-output 1;
 #X obj 101 101 cnv 15 1019 78 empty empty 1-synsynsyn 400 30 0 34 -21525
 -249661 0;
 #N canvas 406 214 450 300 close 0;
@@ -36,7 +36,7 @@
 #X connect 8 0 5 0;
 #X coords 0 -1 1 1 1020 80 2 100 100;
 #X restore 35 48 pd input-output;
-#X obj 108 169 UI/ui_4_sync_loop 1;
+#X obj 283 171 UI/ui_4_sync_loop 1;
 #X obj 35 711 UI/ui_tempo;
-#X obj 286 169 UI/ui_4_sync_loop 2;
-#X obj 454 170 UI/ui_4_sync_loop 3;
+#X obj 461 171 UI/ui_4_sync_loop 2;
+#X obj 629 172 UI/ui_4_sync_loop 3;
