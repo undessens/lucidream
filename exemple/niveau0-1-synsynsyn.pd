@@ -2,7 +2,7 @@
 #X declare -path ../;
 #X obj 35 131 cnv 15 1020 576 empty empty empty 20 12 0 14 -41876 -262144
 0;
-#N canvas 124 23 1411 799 input-output 1;
+#N canvas 124 23 1411 799 input-output 0;
 #X obj 101 101 cnv 15 1019 78 empty empty 1-synsynsyn 400 30 0 34 -21525
 -249661 0;
 #N canvas 406 214 450 300 close 0;
