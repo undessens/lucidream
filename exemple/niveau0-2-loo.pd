@@ -1,9 +1,9 @@
-#N canvas 115 213 1151 799 10;
+#N canvas 171 82 1151 799 10;
 #X declare -path ../;
 #X obj 35 107 cnv 15 1020 602 empty empty empty 20 12 0 14 -41876 -262144
 0;
-#N canvas 143 101 1374 823 input-output 1;
-#X obj 101 101 cnv 15 1020 80 empty empty 2-loo 400 30 1 34 -21525
+#N canvas 143 101 1374 823 input-output 0;
+#X obj 101 101 cnv 15 1018 78 empty empty 2-loo 400 30 1 34 -21525
 -262144 0;
 #N canvas 406 214 450 300 close 0;
 #X obj 103 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
