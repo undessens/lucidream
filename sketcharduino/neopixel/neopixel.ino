@@ -7,11 +7,23 @@
  *        Casemate Fablab de Grenoble
  */
 
+ #include <Adafruit_NeoPixel.h>
+#ifdef __AVR__
+  #include <avr/power.h>
+#endif
 
-#define ANALOGIN 0    // Nombre de potentiometre
+#define PIN            6
+#define NUMPIXELS      4
+
+
+#define ANALOGIN 6    // Nombre de potentiometre
 #define DIGITALIN 8   // Nombre de boutons
-#define DIGITALOUT 4  // Nombre de leds
+#define DIGITALOUT 12  // Nombre de leds
 #define ANALOG_THRESH 10 
+
+//--------------- NEOPIXEL ----------------
+Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+int digitaloutValue[DIGITALOUT];
 
 // ------------   POTENTIOMETRE --------------
 int analogValue[ANALOGIN];
@@ -22,9 +34,6 @@ int digitalinValue[DIGITALIN];
 int digitalinPin[] =  { 2,3,4,5,6,7,8 ,9};
 
 
-// ------------   LEDS  --------------------
-int digitaloutValue[DIGITALOUT];
-int digitaloutPin[] = { 10, 11, 12 , 13};
 
 void setup(){
 
@@ -45,16 +54,10 @@ void setup(){
     digitalinValue[i] = digitalRead(digitalinPin[i]);
   }
 
+  pixels.begin();
 
-   for(int i=0 ; i<DIGITALOUT ; i++ ){
-    pinMode(digitaloutPin[i], OUTPUT );
-    digitaloutValue[i] = LOW;
-    digitalWrite(digitaloutPin[i], HIGH);
-    digitalWrite(digitaloutPin[i], LOW);
-    }
    
-   
-   
+      
 
 }
 
@@ -105,23 +108,42 @@ void loop(){
       
          switch(channel){
              case 0:
-                    digitalWrite(digitaloutPin[0], value);
+                   setNeoPixel(0, value, 0,0);
               break;
              case 1:
-                   digitalWrite(digitaloutPin[1], value);
+                   setNeoPixel(0, 0,value,0);
                 break; 
             case 2: 
-                   digitalWrite(digitaloutPin[2], value);
+                   setNeoPixel(0, 0,0 ,value);
                 break;
-            case 3: 
-                   digitalWrite(digitaloutPin[3], value);
-                break; 
-            case 4: 
-                 digitalWrite(digitaloutPin[4], value);
+           case 3:
+                   setNeoPixel(1, value, 0,0);
+              break;
+             case 4:
+                   setNeoPixel(1, 0,value,0);
                 break; 
             case 5: 
-             digitalWrite(digitaloutPin[5], value);
+                   setNeoPixel(1, 0,0 ,value);
+                break;
+             case 6:
+                   setNeoPixel(2, value, 0,0);
+              break;
+             case 7:
+                   setNeoPixel(2, 0,value,0);
                 break; 
+            case 8: 
+                   setNeoPixel(2, 0,0 ,value);
+                break;
+            case 9:
+                   setNeoPixel(3, value, 0,0);
+              break;
+             case 10:
+                   setNeoPixel(3, 0,value,0);
+                break; 
+            case 11: 
+                   setNeoPixel(3, 0,0 ,value);
+                break;
+
             
           
              
@@ -163,6 +185,35 @@ Serial.print(address);
 Serial.print(" - val: ");
 Serial.println(value);
  */
+}
+
+void setNeoPixel(int channel, int r, int v, int b){
+
+  int finalr, finalv, finalb;
+  if( r == 0 ){
+    finalr= digitaloutValue[channel];
+  }else{
+    digitaloutValue[channel] = r;
+    finalr = r;
+  }
+  
+  if( v == 0 ){
+    finalv= digitaloutValue[channel+1];
+  }else{
+    digitaloutValue[channel+1] = v;
+    finalv = v;
+  }
+  
+  if( b == 0 ){
+    finalb= digitaloutValue[channel+2];
+  }else{
+    digitaloutValue[channel+2] = b;
+    finalb = b;
+  }
+  pixels.setPixelColor(channel, pixels.Color(finalr,finalv,finalb));
+  pixels.show();
+
+
 }
 
 
