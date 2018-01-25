@@ -1,0 +1,59 @@
+#N canvas 250 80 945 583 10;
+#X declare -path ../;
+#X obj 192 207 cnv 15 660 260 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 212 420 UI/ui_tempo_small;
+#X obj 192 118 cnv 15 660 80 empty empty LUCIDREAM 200 22 0 36 -21525
+-88297 0;
+#X obj 6 207 cnv 15 180 260 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 17 271 UI/ui_mic;
+#N canvas 191 76 763 467 patch 0;
+#X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
+0;
+#X obj 274 108 audio/mic;
+#X obj 274 61 adc~;
+#X obj 366 244 audio/tempo;
+#X obj 274 246 *~ 1;
+#X obj 274 275 dac~;
+#X obj 180 104 bng 35 250 50 0 empty empty OPEN 4 20 0 10 -262144 -1
+-1;
+#X msg 133 163 \; pd-patch vis 1;
+#X obj 38 100 bng 35 250 50 0 empty empty CLOSE 4 20 0 10 -262144 -1
+-1;
+#X msg 38 164 \; pd-patch vis 0;
+#X obj 253 17 declare -path ../;
+#X obj 274 177 audio/4_free_sound 1;
+#X obj 564 126 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 48 14 arduino/arduino;
+#X obj 379 -22 arduino/arduino_in;
+#X obj 360 92 bang;
+#X obj 400 92 bang;
+#X obj 440 92 bang;
+#X obj 480 92 bang;
+#X obj 484 346 arduino/arduino_out;
+#X obj 537 102 sel 0;
+#X connect 1 0 11 0;
+#X connect 2 0 1 0;
+#X connect 2 1 1 0;
+#X connect 4 0 5 1;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 8 0 9 0;
+#X connect 11 0 4 0;
+#X connect 11 1 19 0;
+#X connect 12 0 11 5;
+#X connect 14 6 20 0;
+#X connect 14 7 15 0;
+#X connect 14 8 16 0;
+#X connect 14 9 17 0;
+#X connect 14 10 18 0;
+#X connect 15 0 11 1;
+#X connect 16 0 11 2;
+#X connect 17 0 11 3;
+#X connect 18 0 11 4;
+#X connect 20 1 12 0;
+#X coords 0 -1 1 1 140 42 2 100 100;
+#X restore 19 413 pd patch;
+#X obj 213 211 UI/ui_4_free_sound 1;

@@ -1,0 +1,42 @@
+#N canvas 432 106 945 583 10;
+#X declare -path ../;
+#X text 179 516 TODO decompte du quantif + pouvoir changer la valeur.
+Enregistrer cette valeur de le fichier tempo ?;
+#X text 184 575 TODO \, rajouter UI pour le volume et les effets;
+#X text 579 602 Ajouter un record general;
+#X obj 192 207 cnv 15 660 260 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 217 412 UI/ui_tempo_small;
+#X obj 218 272 UI/ui_4_recloopsave_line;
+#X obj 217 230 UI/ui_col_selection;
+#X obj 192 118 cnv 15 660 80 empty empty LUCIDREAM 200 22 0 36 -21525
+-88297 0;
+#X obj 6 207 cnv 15 180 260 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 17 271 UI/ui_mic;
+#N canvas 20 56 541 441 patch 0;
+#X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
+0;
+#X obj 274 108 audio/mic;
+#X obj 274 61 adc~;
+#X obj 364 245 audio/tempo;
+#X obj 274 246 *~ 1;
+#X obj 274 275 dac~;
+#X obj 274 173 audio/4_recloopsave_line;
+#X obj 180 104 bng 35 250 50 0 empty empty OPEN 4 20 0 10 -262144 -1
+-1;
+#X msg 133 163 \; pd-patch vis 1;
+#X obj 38 100 bng 35 250 50 0 empty empty CLOSE 4 20 0 10 -262144 -1
+-1;
+#X msg 38 164 \; pd-patch vis 0;
+#X obj 400 25 declare -path ../;
+#X connect 1 0 6 0;
+#X connect 2 0 1 0;
+#X connect 2 1 1 0;
+#X connect 4 0 5 1;
+#X connect 4 0 5 0;
+#X connect 6 0 4 0;
+#X connect 7 0 8 0;
+#X connect 9 0 10 0;
+#X coords 0 -1 1 1 140 42 2 100 100;
+#X restore 19 413 pd patch;

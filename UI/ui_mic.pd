@@ -1,0 +1,118 @@
+#N canvas 79 287 635 520 10;
+#X obj 366 150 extra/sv \$1_\$2_is_loop_waitforplay;
+#X obj 101 101 cnv 15 138 98 empty empty empty 20 12 0 14 -33289 -128992
+0;
+#X obj 103 103 cnv 15 133 93 empty empty MICRO 45 12 0 14 -262144 -33289
+0;
+#N canvas 447 412 1038 529 open 0;
+#X text 462 314 label-color;
+#X text 477 339 label-color;
+#X obj 377 311 t b f;
+#X msg 400 277 2;
+#X obj 551 220 loadbang;
+#X obj 104 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 104 166 bang;
+#X msg 363 277 43;
+#X obj 101 101 cnv 15 38 15 empty \$0_opencnv open 6 8 0 10 -66577
+-262144 0;
+#X msg 536 421 \; \$4_opencnv color \$1 \$2 \$3;
+#X obj 363 197 bang;
+#X obj 535 388 pack 43 0 0 \$0;
+#X obj 380 239 delay 200;
+#X obj 102 208 s \$1_\$2_loop_open;
+#X connect 2 1 11 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 10 0;
+#X connect 6 0 13 0;
+#X connect 7 0 2 0;
+#X connect 10 0 7 0;
+#X connect 10 0 12 0;
+#X connect 11 0 9 0;
+#X connect 12 0 3 0;
+#X coords 0 -1 1 1 40 17 2 100 100;
+#X restore 207 255 pd open;
+#N canvas 527 215 1038 529 del 0;
+#X text 462 314 label-color;
+#X text 477 339 label-color;
+#X obj 377 311 t b f;
+#X msg 400 277 2;
+#X obj 551 220 loadbang;
+#X obj 116 101 hradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -258113 0;
+#X obj 104 166 bang;
+#X msg 363 277 43;
+#X obj 101 101 cnv 15 48 15 empty \$0_delcnv delete 8 8 0 8 -66577
+-258699 0;
+#X obj 363 197 bang;
+#X obj 380 239 delay 200;
+#X msg 536 421 \; \$4_delcnv color \$1 \$2 \$3;
+#X obj 535 388 pack 43 0 43 \$0;
+#X msg 104 209 0;
+#X obj 13 241 extra/sv \$1_\$2_is_loop_recorded;
+#X connect 2 1 12 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 9 0;
+#X connect 6 0 13 0;
+#X connect 7 0 2 0;
+#X connect 9 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 3 0;
+#X connect 12 0 11 0;
+#X connect 13 0 14 1;
+#X coords 0 -1 1 1 50 17 2 100 100;
+#X restore 270 258 pd del;
+#X floatatom 150 180 5 0 0 0 - - -, f 5;
+#X obj 6 216 s mic_volume_fromUI;
+#X obj 218 113 vu 15 80 empty empty -1 -8 0 10 -66577 -1 0 0;
+#X obj 107 113 vu 15 80 empty empty -1 -8 0 10 -66577 -1 0 0;
+#X obj 166 29 r mic_prevumetre;
+#X obj 325 47 r mic_postvumetre;
+#X obj 94 344 s mic_volume_fromUI;
+#X obj 433 197 s mic_threshold_fromUI;
+#N canvas 716 201 682 523 volume 1;
+#X floatatom 244 309 5 0 0 0 - - -, f 5;
+#X obj 85 103 vsl 10 71 0 100 0 0 empty empty empty 0 -9 0 10 -170864
+-1 -1 7000 0;
+#X msg 247 502 \; \$3_slider vis_size \$2 \$1;
+#X obj 83 101 cnv 8 14 80 empty empty empty 20 12 0 14 -99865 -66577
+0;
+#X obj 84 103 cnv 5 12 76 empty empty empty 20 12 0 14 -1375 -66577
+0;
+#X obj 84 103 cnv 3 12 72 empty \$0_slider empty 20 12 0 14 -170864
+-66577 0;
+#X obj 246 339 / 100;
+#X obj 246 362 * -1;
+#X obj 246 390 + 1;
+#X obj 357 419 * 255;
+#X obj 356 465 outlet;
+#X obj 182 70 inlet;
+#X obj 244 416 * 78;
+#X obj 245 448 pack 0 12 \$0;
+#X obj 180 133 / 255;
+#X floatatom 414 468 5 0 0 0 - - -, f 5;
+#X connect 0 0 6 0;
+#X connect 1 0 0 0;
+#X connect 6 0 7 0;
+#X connect 6 0 9 0;
+#X connect 7 0 8 0;
+#X connect 8 0 12 0;
+#X connect 9 0 10 0;
+#X connect 9 0 15 0;
+#X connect 11 0 14 0;
+#X connect 12 0 13 0;
+#X connect 13 0 2 0;
+#X connect 14 0 7 0;
+#X coords 0 -1 1 1 16 82 2 82 100;
+#X restore 127 112 pd volume;
+#X obj 167 63 r mic_volume_toUI;
+#X connect 5 0 12 0;
+#X connect 9 0 8 0;
+#X connect 10 0 7 0;
+#X connect 13 0 11 0;
+#X connect 14 0 13 0;
+#X coords 0 -1 1 1 140 100 2 100 100;

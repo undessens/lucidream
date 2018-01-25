@@ -753,7 +753,7 @@ milliseconds \, based on samplerate.;
 #X obj 257 144 hsl 90 15 2.4 0 0 1 empty empty reflection 20 8 0 10
 -262144 -260097 -1 8900 0;
 #X obj 321 -17 hsl 90 15 0 1 0 1 empty empty quantite 20 8 0 10 -262144
--260097 -1 5700 0;
+-260097 -1 8600 0;
 #X obj 122 -6 inlet;
 #X obj 182 35 f 0;
 #X obj 38 29 inlet~;

@@ -1,4 +1,4 @@
-#N canvas 171 82 1151 799 10;
+#N canvas 159 49 1151 799 10;
 #X declare -path ../;
 #X obj 35 107 cnv 15 1020 602 empty empty empty 20 12 0 14 -41876 -262144
 0;
@@ -50,4 +50,4 @@
 #X coords 0 -1 1 1 1020 80 2 100 100;
 #X restore 36 22 pd input-output;
 #X obj 35 713 UI/ui_tempo;
-#X obj 383 165 UI/ui_recloop 1;
+#X obj 378 165 UI/ui_recloop 1;

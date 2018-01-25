@@ -1,0 +1,58 @@
+#N canvas 623 47 856 634 10;
+#X msg 33 236 0;
+#X msg 40 337 1;
+#X msg 41 446 2;
+#X msg 37 546 3;
+#X obj -67 583 extra/sv line_selected;
+#X obj 101 101 vradio 33 1 0 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 102 101 cnv 15 33 100 empty empty empty 20 12 0 14 -128992 -262144
+0;
+#X obj 111 110 cnv 15 15 80 empty line_selected_0 empty 20 12 0 14
+-128992 -262144 0;
+#X obj 101 211 vradio 33 1 0 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 102 211 cnv 15 33 100 empty empty empty 20 12 0 14 -128992 -262144
+0;
+#X obj 111 220 cnv 15 15 80 empty line_selected_1 empty 20 12 0 14
+-128992 -262144 0;
+#X obj 101 324 vradio 33 1 0 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 102 324 cnv 15 33 100 empty empty empty 20 12 0 14 -128992 -262144
+0;
+#X obj 111 333 cnv 15 15 80 empty line_selected_2 empty 20 12 0 14
+-128992 -262144 0;
+#X obj 101 436 vradio 33 1 0 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 102 436 cnv 15 33 100 empty empty empty 20 12 0 14 -128992 -262144
+0;
+#X obj 111 445 cnv 15 15 80 empty line_selected_3 empty 20 12 0 14
+-33289 -262144 0;
+#X msg -67 703 \; line_selected_\$4 color \$1 \$2 \$3;
+#X obj -67 672 pack 22 0 0 0;
+#X msg 212 652 \; line_selected_0 color 11 0 0;
+#X msg 212 692 \; line_selected_2 color 11 0 0;
+#X msg 392 652 \; line_selected_1 color 11 0 0;
+#X msg 392 692 \; line_selected_3 color 11 0 0;
+#X obj 375 626 bang;
+#X obj -67 609 t f b f b;
+#X msg -67 644 12;
+#X connect 0 0 4 1;
+#X connect 1 0 4 1;
+#X connect 2 0 4 1;
+#X connect 3 0 4 1;
+#X connect 4 0 24 0;
+#X connect 5 0 0 0;
+#X connect 8 0 1 0;
+#X connect 11 0 2 0;
+#X connect 14 0 3 0;
+#X connect 18 0 17 0;
+#X connect 23 0 21 0;
+#X connect 23 0 22 0;
+#X connect 23 0 20 0;
+#X connect 23 0 19 0;
+#X connect 24 1 25 0;
+#X connect 24 2 23 0;
+#X connect 24 2 18 3;
+#X connect 25 0 18 0;
+#X coords 0 -1 1 1 35 440 2 100 100;
