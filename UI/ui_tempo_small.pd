@@ -9,16 +9,16 @@
 #X msg 381 -30 2;
 #X obj 340 88 pack 22 0 0 \$0;
 #X obj 354 -122 inlet;
-#X obj 89 8 cnv 15 80 38 empty \$0_playcnv PLAY 35 17 0 15 -1 -66577
+#X obj 89 8 cnv 15 80 38 empty \$0_playcnv PLAY 35 17 0 15 -1 -24198
 0;
-#X obj 91 18 cnv 15 25 18 empty \$0_playsquare empty 20 12 0 14 -66577
+#X obj 91 18 cnv 15 25 18 empty \$0_playsquare empty 20 12 0 14 -24198
 -262144 0;
 #X obj 118 231 outlet;
 #X msg 337 119 \; \$4_playsquare color \$1 \$2 \$3;
 #X msg 508 117 \; \$4_playcnv color \$1 \$2 \$3;
 #X msg 419 -31 16;
 #X obj 119 165 bang;
-#X obj 122 201 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 122 201 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 416 -122 inlet;
 #X connect 0 0 14 0;
@@ -35,7 +35,7 @@
 #X connect 16 0 13 0;
 #X coords 0 -1 1 1 82 40 2 88 7;
 #X restore 329 101 pd play;
-#N canvas 327 23 1025 451 play 1;
+#N canvas 327 23 1025 451 play 0;
 #X obj 101 101 hradio 37 1 0 2 empty empty empty 0 -8 0 10 -262144
 -1 -1 0;
 #X text 443 7 label-color;
@@ -45,13 +45,13 @@
 #X msg 381 -30 2;
 #X obj 340 88 pack 22 0 0 \$0;
 #X obj 354 -122 inlet;
-#X obj 101 101 cnv 15 80 38 empty \$0_stopcnv STOP 35 19 0 15 -1 -258699
+#X obj 101 101 cnv 15 80 38 empty \$0_stopcnv STOP 35 19 0 15 -1 -66577
 0;
-#X obj 105 113 cnv 15 25 18 empty \$0_stopsquare empty 20 12 0 14 -258699
+#X obj 105 113 cnv 15 25 18 empty \$0_stopsquare empty 20 12 0 14 -66577
 -262144 0;
 #X obj 118 231 outlet;
 #X obj 119 165 bang;
-#X obj 122 201 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 122 201 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 337 119 \; \$4_stopsquare color \$1 \$2 \$3;
 #X msg 508 117 \; \$4_stopcnv color \$1 \$2 \$3;
@@ -104,7 +104,7 @@
 #X msg 230 237 2;
 #X obj 273 200 loadbang;
 #X obj 108 101 hradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 0;
 #X obj 108 126 bang;
 #X msg 193 237 43;
 #X obj 101 101 cnv 15 58 15 empty \$0_loadcnv load 16 8 0 10 -66577
@@ -245,7 +245,7 @@
 #X connect 21 0 22 0;
 #X coords 0 -1 1 1 212 40 2 100 100;
 #X restore 498 101 pd bank;
-#N canvas 551 167 854 398 bank 0;
+#N canvas 551 167 854 398 bank 1;
 #X obj 109 173 i 0;
 #X obj 109 241 makefilename %d;
 #X obj 109 267 symbol \$1;
@@ -255,12 +255,14 @@
 #X msg 110 372 \; \$1_tempocnv label \$2;
 #X obj 343 56 r tempo_valueOUT;
 #X obj -2 239 s tempo_fromUI;
-#X obj 108 102 nbx 5 23 80 160 0 0 empty empty empty 0 -8 0 10 -262144
--1 -1 116 256;
+#X obj 106 108 nbx 5 23 80 160 0 0 empty empty empty 0 -8 0 10 -262144
+-1 -1 101 256 0;
 #X obj 101 101 cnv 15 140 38 empty empty TEMPO 70 17 0 20 -33289 -262144
 0;
-#X obj 111 107 cnv 15 52 22 empty \$0_tempocnv 115 4 10 0 22 -262144
+#X obj 111 107 cnv 15 52 22 empty \$0_tempocnv 101 4 10 0 22 -262144
 -1 0;
+#X obj 42 17 loadbang;
+#X msg 37 48 100;
 #X connect 0 0 1 0;
 #X connect 0 0 8 0;
 #X connect 1 0 2 0;
@@ -272,6 +274,8 @@
 #X connect 7 0 1 0;
 #X connect 7 0 5 0;
 #X connect 9 0 0 0;
+#X connect 12 0 13 0;
+#X connect 13 0 9 0;
 #X coords 0 -1 1 1 142 40 2 100 100;
 #X restore 183 101 pd bank;
 #X connect 0 0 2 0;
