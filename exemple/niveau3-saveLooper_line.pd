@@ -1,4 +1,4 @@
-#N canvas 432 106 945 583 10;
+#N canvas 976 152 901 748 10;
 #X declare -path ../;
 #X text 179 516 TODO decompte du quantif + pouvoir changer la valeur.
 Enregistrer cette valeur de le fichier tempo ?;
@@ -14,7 +14,7 @@ Enregistrer cette valeur de le fichier tempo ?;
 #X obj 6 207 cnv 15 180 260 empty empty empty 20 12 0 14 -233017 -66577
 0;
 #X obj 17 271 UI/ui_mic;
-#N canvas 20 56 541 441 patch 0;
+#N canvas 20 56 592 496 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 274 108 audio/mic;
@@ -30,6 +30,10 @@ Enregistrer cette valeur de le fichier tempo ?;
 -1;
 #X msg 38 164 \; pd-patch vis 0;
 #X obj 400 25 declare -path ../;
+#X obj 418 89 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 461 89 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
 #X connect 1 0 6 0;
 #X connect 2 0 1 0;
 #X connect 2 1 1 0;
@@ -38,5 +42,8 @@ Enregistrer cette valeur de le fichier tempo ?;
 #X connect 6 0 4 0;
 #X connect 7 0 8 0;
 #X connect 9 0 10 0;
+#X connect 12 0 6 1;
+#X connect 13 0 6 2;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 19 413 pd patch;
+#X text 186 620 Ajouter le clear sur l"UI;
