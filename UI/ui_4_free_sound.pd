@@ -1,6 +1,6 @@
-#N canvas 1014 25 422 723 10;
+#N canvas 481 71 742 688 10;
 #X obj 101 100 ui_freesound \$1 1;
 #X obj 229 101 ui_freesound \$1 2;
-#X obj 101 189 ui_freesound \$1 3;
-#X obj 229 188 ui_freesound \$1 4;
-#X coords 0 -1 1 1 250 176 2 100 100;
+#X obj 355 101 ui_freesound \$1 3;
+#X obj 479 101 ui_freesound \$1 4;
+#X coords 0 -1 1 1 500 87 2 100 100;

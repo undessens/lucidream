@@ -1,21 +1,21 @@
-#N canvas 251 193 1073 596 10;
+#N canvas 238 67 1076 724 10;
 #X declare -path ../;
-#X obj 192 207 cnv 15 660 260 empty empty empty 20 12 0 14 -233017
+#X obj 192 207 cnv 15 660 360 empty empty empty 20 12 0 14 -233017
 -66577 0;
-#X obj 212 420 UI/ui_tempo_small;
+#X obj 213 518 UI/ui_tempo_small;
 #X obj 192 118 cnv 15 660 80 empty empty NINTENDO-MPC 200 22 0 36 -21525
 -88297 0;
 #X obj 6 207 cnv 15 180 260 empty empty empty 20 12 0 14 -233017 -66577
 0;
 #X obj 17 271 UI/ui_mic;
-#N canvas 136 80 1145 618 patch 0;
+#N canvas 246 82 1145 618 patch 0;
 #X obj 101 101 cnv 15 138 40 empty empty PATCH 20 12 0 14 -66577 -262144
 0;
 #X obj 274 108 audio/mic;
 #X obj 274 61 adc~;
 #X obj 366 244 audio/tempo;
-#X obj 606 244 *~ 1;
-#X obj 606 273 dac~;
+#X obj 606 434 *~ 1;
+#X obj 606 463 dac~;
 #X obj 180 104 bng 35 250 50 0 empty empty OPEN 4 20 0 10 -262144 -1
 -1;
 #X msg 133 163 \; pd-patch vis 1;
@@ -28,7 +28,7 @@
 -1 -1;
 #X obj 48 14 arduino/arduino;
 #X obj 379 -22 arduino/arduino_in;
-#X obj 484 346 arduino/arduino_out;
+#X obj 484 506 arduino/arduino_out;
 #X obj 424 91 sel 0;
 #X obj 474 92 sel 255;
 #X obj 522 92 sel 255;
@@ -45,6 +45,20 @@
 #X obj 903 92 sel 255;
 #X obj 951 92 sel 255;
 #X obj 998 92 sel 255;
+#X obj 807 369 effect/main_effect;
+#X obj 807 339 *~ 1;
+#X obj 377 59 s A0;
+#X obj 407 59 s A1;
+#X obj 439 59 s A2;
+#X obj 833 233 r A0;
+#X obj 833 307 dbtorms;
+#X obj 833 258 / 4;
+#X obj 833 283 + 50;
+#X obj 897 339 *~ 1;
+#X obj 923 307 dbtorms;
+#X obj 923 258 / 4;
+#X obj 923 283 + 50;
+#X obj 923 233 r A1;
 #X connect 1 0 23 0;
 #X connect 2 0 1 0;
 #X connect 2 1 1 0;
@@ -57,6 +71,9 @@
 #X connect 12 0 11 5;
 #X connect 12 0 21 5;
 #X connect 12 0 22 5;
+#X connect 14 0 34 0;
+#X connect 14 1 35 0;
+#X connect 14 2 36 0;
 #X connect 14 6 16 0;
 #X connect 14 7 17 0;
 #X connect 14 8 18 0;
@@ -77,6 +94,8 @@
 #X connect 20 0 11 4;
 #X connect 21 0 4 0;
 #X connect 22 0 4 0;
+#X connect 22 0 33 0;
+#X connect 22 0 41 0;
 #X connect 24 0 21 1;
 #X connect 25 0 21 2;
 #X connect 26 0 21 3;
@@ -85,8 +104,19 @@
 #X connect 29 0 22 2;
 #X connect 30 0 22 3;
 #X connect 31 0 22 4;
+#X connect 32 0 4 0;
+#X connect 33 0 32 0;
+#X connect 37 0 39 0;
+#X connect 38 0 33 1;
+#X connect 39 0 40 0;
+#X connect 40 0 38 0;
+#X connect 41 0 32 1;
+#X connect 42 0 41 1;
+#X connect 43 0 44 0;
+#X connect 44 0 42 0;
+#X connect 45 0 43 0;
 #X coords 0 -1 1 1 140 42 2 100 100;
 #X restore 19 413 pd patch;
-#X obj 213 211 UI/ui_4_free_sound 1;
-#X obj 470 211 UI/ui_4_free_sound 2;
-#X obj 724 209 UI/ui_4_free_sound 3;
+#X obj 276 211 UI/ui_4_free_sound 1;
+#X obj 276 301 UI/ui_4_free_sound 2;
+#X obj 276 392 UI/ui_4_free_sound 3;
