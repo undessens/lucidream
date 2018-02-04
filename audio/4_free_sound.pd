@@ -72,7 +72,6 @@
 #X obj -8 142 readsound \$1 1;
 #X obj 432 141 readsound \$1 3;
 #X obj 666 141 readsound \$1 4;
-#X obj 261 -16 s~ audioIn1;
 #X obj 559 262 r \$0_recordmode;
 #X obj 559 303 outlet;
 #X connect 1 0 29 0;
@@ -95,10 +94,9 @@
 #X connect 22 0 17 0;
 #X connect 23 0 24 0;
 #X connect 24 0 22 1;
-#X connect 25 0 32 0;
 #X connect 27 0 0 0;
 #X connect 28 0 22 0;
 #X connect 29 0 0 0;
 #X connect 30 0 0 0;
 #X connect 31 0 0 0;
-#X connect 33 0 34 0;
+#X connect 32 0 33 0;
