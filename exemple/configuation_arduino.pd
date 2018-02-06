@@ -11,4 +11,4 @@
 #X obj 34 737 declare -path ../;
 #X obj 231 200 arduino/list_serial_port;
 #X obj 106 610 arduino/arduino_in;
-#X obj 594 615 arduino/arduino_out;
+#X obj 692 610 arduino/arduino_out;
