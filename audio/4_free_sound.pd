@@ -4,7 +4,7 @@
 #X obj 212 52 r \$0_path2;
 #X obj 432 53 r \$0_path3;
 #X obj 666 54 r \$0_path4;
-#N canvas 615 23 771 283 filePath 0;
+#N canvas 615 23 771 283 filePath 1;
 #X obj 51 84 pack f \$1;
 #X obj 51 158 s \$0_path1;
 #X obj 235 159 s \$0_path2;
@@ -16,7 +16,7 @@
 #X msg 235 123 samples/\$1/OneShot/\$2/2.wav;
 #X msg 421 122 samples/\$1/OneShot/\$2/3.wav;
 #X msg 605 123 samples/\$1/OneShot/\$2/4.wav;
-#X obj 50 35 r tempo_style;
+#X obj 55 30 extra/sv song;
 #X connect 0 0 7 0;
 #X connect 0 0 8 0;
 #X connect 0 0 9 0;

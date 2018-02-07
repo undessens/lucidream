@@ -41,7 +41,7 @@ int digitaloutPin[] = {2};
 
 
 byte rowPins[ROWS] = {12, 11,10}; //connect to the row pinouts of the keypad
-byte colPins[COLS] = {9, 8, 7, 6}; //connect to the column pinouts of the keypad
+byte colPins[COLS] = {6, 7, 8, 9}; //connect to the column pinouts of the keypad
 Keypad kpd( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 unsigned long loopCount;
 unsigned long startTime;
@@ -53,7 +53,7 @@ void setup(){
   loopCount = 0;
   startTime = millis();
   msg = "";
-  Serial.begin(57600);
+  Serial.begin(38400);
   while(!Serial);
   Serial.print("Lucibox");
 

@@ -39,7 +39,7 @@ int digitalinPin[] =  { 6,7,8,9,10,11};
 
 void setup(){
 
-    Serial.begin(57600);
+    Serial.begin(38400);
     while(!Serial);
     Serial.print("Lucibox");
    
@@ -166,16 +166,17 @@ void loop(){
              }
 
 
-     // Don't forget to update the LEDS 
-     pixels.show();
-     delay(4);
+     
+     
+     
     }
    
    
 
     
   }
-  
+  // Don't forget to update the LEDS when serial is over
+  pixels.show();
   
   
   delay(5);
@@ -226,7 +227,7 @@ void setNeoPixel(int channel, int r, int v, int b){
 //    finalb = b;
 //  }
 
-  pixels.setPixelColor(channel, pixels.Color(r,v,b));
+  pixels.setPixelColor(NUMPIXELS-(channel+1), pixels.Color(r,v,b));
   
 
 

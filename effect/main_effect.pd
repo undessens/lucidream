@@ -31,9 +31,9 @@ f 5;
 #X obj 380 -10 inlet;
 #X floatatom 494 93 5 0 0 1 ms effect_delay_ms truc, f 5;
 #X obj 480 241 hradio 15 1 0 7 \$1_effect_delay_dividing empty empty
-0 -8 0 10 -128992 -262144 -1 4;
+0 -8 0 10 -128992 -262144 -1 2;
 #X obj 486 127 vsl 35 100 0 100 0 0 effect_delay_feedbackOUT effect_delay_feedbackIN
-empty 0 -9 0 10 -228856 -1 -1 0 0;
+empty 0 -9 0 10 -228856 -1 -1 5800 0;
 #X text 446 93 duree;
 #X text 553 93 de;
 #X text 574 93 l'echo;
