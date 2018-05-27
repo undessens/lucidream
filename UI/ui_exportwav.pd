@@ -1,0 +1,10 @@
+#N canvas 254 679 1061 368 10;
+#X obj 101 101 cnv 15 842 58 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 198 101 hsl 745 58 0 100 0 0 empty export_slider empty -2 -8
+0 10 -228856 -1 -1 0 1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array export 100000 float 2;
+#X coords 0 2 100000 -2 750 60 1 0 0;
+#X restore 195 100 graph;
+#X coords 0 -1 1 1 845 60 1 100 100;

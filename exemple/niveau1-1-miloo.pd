@@ -2,7 +2,7 @@
 #X declare -path ../;
 #X obj 37 107 cnv 15 1020 602 empty empty empty 20 12 0 14 -41876 -262144
 0;
-#N canvas 224 53 1374 828 input-output 0;
+#N canvas 224 53 1374 828 input-output 1;
 #X obj 101 101 cnv 15 1018 78 empty empty 1-miloo 400 30 0 34 -21525
 -262144 0;
 #N canvas 406 214 450 300 close 0;
@@ -41,8 +41,8 @@
 #X connect 6 6 8 1;
 #X connect 6 7 8 2;
 #X connect 8 0 4 0;
-#X connect 8 1 9 0;
-#X connect 8 2 9 1;
+#X connect 8 1 9 3;
+#X connect 8 2 9 8;
 #X connect 8 3 15 0;
 #X connect 10 0 17 0;
 #X connect 10 1 17 0;
